@@ -30,10 +30,18 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
+<<<<<<< HEAD
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+=======
+    <ListView
+        android:id="@+id/listview1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="10sp"/>
+>>>>>>> eac73548755cf6dea2fa1c0699e93da0e9435250
 
 </android.support.design.widget.CoordinatorLayout>

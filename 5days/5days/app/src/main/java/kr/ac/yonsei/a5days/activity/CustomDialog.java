@@ -40,7 +40,7 @@ public class CustomDialog extends Dialog implements  View.OnClickListener {
         spinnerLevel = findViewById(R.id.level);
         btnSubmit = findViewById(R.id.submit);
         text = findViewById(R.id.text);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date time = new Date();
         day = sdf.format(time);
         btnSubmit.setOnClickListener(this);
@@ -49,7 +49,7 @@ public class CustomDialog extends Dialog implements  View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Goal goal = new Goal(text.getText().toString(),spinnerLevel.getNumStars(),day);
+        Goal goal = new Goal(text.getText().toString(),(int)spinnerLevel.getRating() ,day);
         customDialogListener.onPositiveClicked(goal);
         dismiss();
     }

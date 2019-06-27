@@ -11,7 +11,7 @@ public class Goal {
     public Goal(String name,int level,String date) {
         this.date = date;
         this.level = level;
-        this.point = 0;
+        this.point = 100;
         this.name = name;
     }
 
@@ -28,7 +28,7 @@ public class Goal {
     }
 
     public void setPoint(int point) {
-        this.point = point;
+        this.point += point;
     }
 
     public String getDate() {

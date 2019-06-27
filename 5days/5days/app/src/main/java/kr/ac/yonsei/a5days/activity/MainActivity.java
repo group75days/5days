@@ -23,6 +23,7 @@ import kr.ac.yonsei.a5days.item.Goal;
 import kr.ac.yonsei.a5days.util.DataBase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+<<<<<<< HEAD
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -33,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
    //private static ArrayList<? extends item> itemArrayList;
 
 
+=======
+    private boolean check = false;
+    ListView listview;
+    ListViewAdapter adapter;
+>>>>>>> eac73548755cf6dea2fa1c0699e93da0e9435250
 
 
     @Override
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DataBase manager = new DataBase(getApplicationContext(),"Goal",null,1);
         List<String> list = manager.select();
 
+<<<<<<< HEAD
        // itemArrayList = new ArrayList<>();
         String str = "";
 
@@ -78,6 +85,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             recyclerView.setAdapter(new RecyclerAdapter(getApplicationContext(),items,R.layout.activity_main));
 
 
+=======
+
+        //리스트뷰 선언
+        listview = (ListView) findViewById(R.id.listview1);
+        adapter = new ListViewAdapter();
+        listview.setAdapter(adapter);
+
+
+        String str = "";
+        for(int i = 0; i < list.size(); i++){
+            //str += list.get(i)+"\n";
+            str = list.get(i);
+            String[] str2 = str.split("@");
+            //리스트 값 넣어주기
+            adapter.addItem(str2[0],str2[2]);
+        }
+       // text.setText(str);
+>>>>>>> eac73548755cf6dea2fa1c0699e93da0e9435250
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
     }
@@ -115,8 +140,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     DataBase manager = new DataBase(getApplicationContext(),"Goal",null,1);
                     manager.exequte("INSERT INTO Goal values('"+goal.getName()
                             +"', '"+goal.getDate()+"', "+goal.getLevel()+", "+goal.getPoint()+")");
+<<<<<<< HEAD
 
                    // adapter.add(goal.getName(),Integer.toString(goal.getLevel()));
+=======
+                    adapter.addItem(goal.getName(),Integer.toString(goal.getLevel()));
+
+>>>>>>> eac73548755cf6dea2fa1c0699e93da0e9435250
                 }
             });
             dialog.show();
