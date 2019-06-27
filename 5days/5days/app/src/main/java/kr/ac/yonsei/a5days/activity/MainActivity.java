@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         DataBase manager = new DataBase(getApplicationContext(),"Goal",null,1);
         List<String> list = manager.select();
         TextView text = findViewById(R.id.text2);
-        String str = null;
+        String str = "";
         for(int i = 0; i < list.size();i++){
             str += list.get(i)+"\n";
         }
