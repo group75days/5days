@@ -44,7 +44,9 @@ public class CustomDialog extends Dialog implements  View.OnClickListener {
         Date time = new Date();
         day = sdf.format(time);
         btnSubmit.setOnClickListener(this);
-        }
+
+    }
+
     @Override
     public void onClick(View v) {
         Goal goal = new Goal(text.getText().toString(),spinnerLevel.getNumStars(),day);
