@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -20,6 +21,10 @@ import kr.ac.yonsei.a5days.util.DataBase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private boolean check = false;
+    ListView listview;
+    ListViewAdapter adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +33,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
         DataBase manager = new DataBase(getApplicationContext(),"Goal",null,1);
         List<String> list = manager.select();
-        TextView text = findViewById(R.id.text2);
+
+
+        //리스트뷰 선언
+        listview = (ListView) findViewById(R.id.listview1);
+        adapter = new ListViewAdapter();
+        listview.setAdapter(adapter);
+
+
         String str = "";
-        for(int i = 0; i < list.size();i++){
-            str += list.get(i)+"\n";
+        for(int i = 0; i < list.size(); i++){
+            //str += list.get(i)+"\n";
+            str = list.get(i);
+            String[] str2 = str.split("@");
+            //리스트 값 넣어주기
+            adapter.addItem(str2[0],str2[2]);
         }
-        text.setText(str);
+       // text.setText(str);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
     }
@@ -71,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     DataBase manager = new DataBase(getApplicationContext(),"Goal",null,1);
                     manager.exequte("INSERT INTO Goal values('"+goal.getName()
                             +"', '"+goal.getDate()+"', "+goal.getLevel()+", "+goal.getPoint()+")");
+                    adapter.addItem(goal.getName(),Integer.toString(goal.getLevel()));
+
                 }
             });
             dialog.show();
