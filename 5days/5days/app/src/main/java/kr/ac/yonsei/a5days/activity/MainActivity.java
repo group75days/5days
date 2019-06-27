@@ -14,7 +14,7 @@ import kr.ac.yonsei.a5days.R;
 import kr.ac.yonsei.a5days.item.Goal;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
+    private boolean check = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

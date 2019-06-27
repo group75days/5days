@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
@@ -36,7 +37,6 @@ public class CustomDialog extends Dialog implements  View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_goal);
-
         spinnerLevel = findViewById(R.id.level);
         btnSubmit = findViewById(R.id.submit);
         text = findViewById(R.id.text);
