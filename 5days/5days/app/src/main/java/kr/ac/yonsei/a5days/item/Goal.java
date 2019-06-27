@@ -1,5 +1,7 @@
 package kr.ac.yonsei.a5days.item;
 
+
+//데이터를 처리해주는 클래스
 public class Goal {
     private String date;
     private int level;
